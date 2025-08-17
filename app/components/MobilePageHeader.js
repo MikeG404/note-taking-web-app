@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function MobilePageHeader() {
     return (
-        <header className={`grid-mobile ${styles.mobilePageHeader}`}>
+        <header className={styles.mobilePageHeader}>
             <Image 
                 src="/logo.png"
                 alt="Logo de l'application"

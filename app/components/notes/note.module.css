@@ -1,0 +1,20 @@
+.note {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 12px;
+    padding: 8px;
+    border-bottom: solid var(--neutral-200) 1px;
+    height: 90px;
+    max-height: 90px;
+}
+
+.tag {
+    display: flex;
+    gap: 4px;
+}
+
+.note span {
+    padding: 2px 6px;
+    background-color: var(--neutral-200);
+}

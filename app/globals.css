@@ -117,9 +117,8 @@
 
 /* Mobile Layout */
 .grid-mobile {
-  display: grid;
-  grid-template-columns: repeat(8, 24px);
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
   padding: 12px 16px;
   max-width: 408px;
   margin: 0 auto;
