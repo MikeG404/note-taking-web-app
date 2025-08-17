@@ -27,4 +27,199 @@
   --red-100: #FFD5D8;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Border Radius Classes */
+.radius-0 {
+  border-radius: 0;
+}
+
+.radius-4 {
+  border-radius: 4px;
+}
+
+.radius-6 {
+  border-radius: 6px;
+}
+
+.radius-8 {
+  border-radius: 8px;
+}
+
+.radius-10 {
+  border-radius: 10px;
+}
+
+.radius-12 {
+  border-radius: 12px;
+}
+
+.radius-16 {
+  border-radius: 16px;
+}
+
+.radius-20 {
+  border-radius: 20px;
+}
+
+.radius-24 {
+  border-radius: 24px;
+}
+
+.radius-full {
+  border-radius: 999px;
+}
+
+/* Grid System Classes */
+/* Desktop Sidebar Layout */
+.grid-desktop-sidebar {
+  display: grid;
+  grid-template-columns: 272px 1fr;
+  gap: 0;
+  padding: 0 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-desktop-sidebar .sidebar {
+  width: 272px;
+}
+
+.grid-desktop-sidebar .content {
+  display: grid;
+  grid-template-columns: repeat(10, 70px);
+  gap: 24px;
+}
+
+/* Desktop Layout */
+.grid-desktop {
+  display: grid;
+  grid-template-columns: repeat(12, 70px);
+  gap: 24px;
+  padding: 0 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tablet Layout */
+.grid-tablet {
+  display: grid;
+  grid-template-columns: repeat(8, 67px);
+  gap: 24px;
+  padding: 0 32px;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+/* Mobile Layout */
+.grid-mobile {
+  display: grid;
+  grid-template-columns: repeat(8, 24px);
+  gap: 24px;
+  padding: 12px 16px;
+  max-width: 408px;
+  margin: 0 auto;
+}
+
+/* Responsive Grid Container */
+.grid-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Typography Classes */
+.text-preset-1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: -0.5px;
+}
+
+.text-preset-2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.5px;
+}
+
+.text-preset-3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  letter-spacing: -0.3px;
+}
+
+.text-preset-4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: -0.2px;
+}
+
+.text-preset-5 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: -0.2px;
+}
+
+.text-preset-6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+  letter-spacing: -0.2px;
+}
+
+/* Utility Classes for Grid Items */
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-5 { grid-column: span 5; }
+.col-span-6 { grid-column: span 6; }
+.col-span-7 { grid-column: span 7; }
+.col-span-8 { grid-column: span 8; }
+.col-span-9 { grid-column: span 9; }
+.col-span-10 { grid-column: span 10; }
+.col-span-11 { grid-column: span 11; }
+.col-span-12 { grid-column: span 12; }
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .grid-desktop-sidebar,
+  .grid-desktop {
+    display: none;
+  }
+  
+  .grid-tablet {
+    display: grid;
+  }
+  
+  .grid-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 408px) {
+  .grid-desktop-sidebar,
+  .grid-desktop,
+  .grid-tablet {
+    display: none;
+  }
+  
+  .grid-mobile {
+    display: grid;
+  }
+}
+
 

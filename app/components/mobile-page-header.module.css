@@ -1,0 +1,13 @@
+.mobilePageHeader {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 16px;
+    max-height: 54px;
+    background-color: var(--neutral-100);
+}
+
+.mobilePageHeader h1 {
+    font-family: 'Pacifico';
+    font-size: 23px;
+}
