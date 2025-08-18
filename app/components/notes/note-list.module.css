@@ -1,3 +1,8 @@
+.noteList {
+    height: 100vh;
+    overflow: scroll;
+}
+
 .noteList h2 {
     margin-top: 20px;
     margin-bottom: 16px;
