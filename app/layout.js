@@ -1,5 +1,7 @@
 import { Pacifico } from "next/font/google";
 import "./globals.css";
+import MobilePageHeader from "./components/layout/MobilePageHeader";
+import MobilePageFooter from "./components/layout/MobilePageFooter";
 
 const pacifico = Pacifico({
   variable: "--font-pacifico",
@@ -15,9 +17,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <MobilePageHeader />
       <body className={`${pacifico.variable}`}>
         {children}
       </body>
+      <MobilePageFooter />
     </html>
   );
 }

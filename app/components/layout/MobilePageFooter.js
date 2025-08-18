@@ -1,7 +1,7 @@
 import styles from './mobile-page-footer.module.css';
 import Link from 'next/link';
 
-import { Home, Search, Inbox, Tag, Setting } from '../assets/svg';
+import { Home, Search, Archived, Tag, Setting } from '../assets/svg';
 
 
 export default function MobilePageFooter() {
@@ -13,8 +13,8 @@ export default function MobilePageFooter() {
             <Link href='/search-notes'>
                 <Search />
             </Link>
-            <Link href='/inbox'>
-                <Inbox />
+            <Link href='/archived'>
+                <Archived />
             </Link>
             <Link href='/tags'>
                 <Tag />

@@ -5,9 +5,7 @@ import NoteList from "../components/notes/NoteList";
 export default function AllNotes() {
     return (
         <main>
-            <MobilePageHeader />
             <NoteList />
-            <MobilePageFooter />
         </main>
     )
 }

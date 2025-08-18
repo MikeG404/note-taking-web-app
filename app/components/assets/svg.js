@@ -18,7 +18,7 @@ export const Search = () => {
     )
 }
 
-export const Inbox = () => {
+export const Archived = () => {
     return (
         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M21.5 7.78216V16.2169C21.5 19.165 19.4188 21 16.4736 21H8.52638C5.58119 21 3.5 19.165 3.5 16.2159V7.78216C3.5 4.83405 5.58119 3 8.52638 3H16.4736C19.4188 3 21.5 4.84281 21.5 7.78216Z" stroke="#525866" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -46,3 +46,11 @@ export const Setting = () => {
         </svg>
     )
 }
+
+export const Plus = () => {
+    return (
+        <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 0.666626C9.55213 0.666626 10 1.11439 10 1.66663V8.66663H17C17.5521 8.66663 18 9.11436 18 9.66663C18 9.96876 17.8659 10.2396 17.6543 10.4228C17.4792 10.5746 17.25 10.6666 17 10.6666H10V17.6666C10 18.2189 9.55213 18.6666 9 18.6666C8.44787 18.6666 8 18.2189 8 17.6666V10.6666H1C0.44792 10.6666 0 10.2189 0 9.66663C0 9.11436 0.44792 8.66663 1 8.66663H8V1.66663C8 1.11439 8.44787 0.666626 9 0.666626Z" fill="white"/>
+        </svg>
+    )
+} 

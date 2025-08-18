@@ -1,5 +1,6 @@
 import styles from './note-list.module.css'
 import Note from "./Note"
+import FloatingButton from '../ui/FloatingButton'
 
 export default function NoteList() {
     return (
@@ -8,13 +9,7 @@ export default function NoteList() {
                 <Note />
                 <Note />
                 <Note />
-                <Note />
-                <Note />
-                <Note />
-                <Note />
-                <Note />
-                <Note />
-                <Note />
+                <FloatingButton />
         </section>
     )
 }
