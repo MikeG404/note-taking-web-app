@@ -1,0 +1,8 @@
+.tag {
+    display: flex;
+    gap: 12px;
+    padding: 8px;
+    border-bottom: solid var(--neutral-200) 1px;
+    height: 40px;
+    max-height: 40px;
+}
