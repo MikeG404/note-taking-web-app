@@ -4,5 +4,11 @@
 
 .noteList h2 {
     margin-top: 20px;
-    margin-bottom: 16px;
+}
+
+.noteListText {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    gap: 12px;
 }
