@@ -10,9 +10,9 @@ export default function NoteList({notes, title, message, children}) {
                 { children }
                 <p className='text-preset-5'>{ message }</p>
             </div>
-                <Note />
-                <Note />
-                <Note />
+            {notes && notes.map((note) => (
+                <Note key={note.id} note={note} />
+            ))}
                 <FloatingButton />
         </section>
     )

@@ -17,11 +17,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <MobilePageHeader />
       <body className={`${pacifico.variable}`}>
+        <MobilePageHeader />
         {children}
+        <MobilePageFooter />
       </body>
-      <MobilePageFooter />
     </html>
   );
 }
