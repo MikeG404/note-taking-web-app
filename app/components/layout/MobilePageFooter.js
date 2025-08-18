@@ -13,7 +13,7 @@ export default function MobilePageFooter() {
             <Link href='/search-notes'>
                 <Search />
             </Link>
-            <Link href='/archived'>
+            <Link href='/archived-notes'>
                 <Archived />
             </Link>
             <Link href='/tags'>
