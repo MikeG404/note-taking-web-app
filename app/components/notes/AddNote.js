@@ -1,8 +1,29 @@
+'use client';
 import { Clock, TagSvg, ChevronLeft } from '../assets/svg';
 import styles from './add-note.module.css';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useNoteStore } from '@/store/useNoteStore';
+import { useState } from 'react';
 
 export default function CreateNote() {
+    const router = useRouter();
+    const addNote = useNoteStore((state) => state.addNote);
+    const [note, setNote] = useState({
+        title: '',
+        content: '',
+        tags: '',
+    });
+
+    const handleSave = () => {
+        const noteWithArrayTags = {
+            ...note,
+            tags: note.tags ? note.tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0) : []
+        };
+        addNote(noteWithArrayTags);
+        router.push('/all-notes');
+    }
+
     return (
         <section className='grid-mobile'>
             <div className={styles.addNoteHeader}>
@@ -12,17 +33,17 @@ export default function CreateNote() {
                 </Link>
                 <div className={styles.addNoteHeaderLinks}>
                     <Link href="/all-notes">Cancel</Link>
-                    <Link href="/all-notes">Save</Link>
+                    <button onClick={handleSave}>Save</button>
                 </div>
             </div>
 
             <div className={styles.addNoteContentHeader}>
-                <input className='text-preset-2' type="text" placeholder="Enter Title..." />
+                <input value={note.title} onChange={(e) => setNote({ ...note, title: e.target.value })} className='text-preset-2' type="text" placeholder="Enter Title..." />
                 <div className={styles.addNoteTags}>
                     <div className={styles.addNoteItem}>
                         <TagSvg width={16} height={16} />
                         <span className='text-preset-6'>Tags</span>
-                        <textarea className='text-preset-6' placeholder="Add tags separated by commas (e.g. Work, Planning)" />
+                        <textarea value={note.tags} onChange={(e) => setNote({ ...note, tags: e.target.value })} className='text-preset-6' placeholder="Add tags separated by commas (e.g. Work, Planning)" />
                     </div>
                     <div className={styles.addNoteItem}>
                         <Clock />
@@ -32,7 +53,7 @@ export default function CreateNote() {
                 </div>
             </div>
             <div className={styles.addNoteContentBody}>
-                <textarea placeholder="Enter Content" />
+                <textarea value={note.content} onChange={(e) => setNote({ ...note, content: e.target.value })} placeholder="Enter Content" />
             </div>
         </section>
     )

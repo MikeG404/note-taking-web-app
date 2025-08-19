@@ -1,6 +1,6 @@
 import styles from './note.module.css';
 
-export default function Note({note}) {
+export default function Note({ note }) {
     return (
         <div className={styles.note}>
             <p className="text-preset-3">{note.title}</p>

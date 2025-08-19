@@ -6,25 +6,21 @@ export const useNoteStore = create(
     persist(
         immer(
             (set) => ({
-                notes: [{
-                    id: 1,
-                    title: 'Note 1',
-                    content: 'This is the first note',
-                    tags: ['Dev', 'React'],
-                    date: '29 Oct 2024',
-                },
-                {
-                    id: 2,
-                    title: 'Note 2',
-                    content: 'This is the second note',
-                    tags: ['non-dev', 'React'],
-                    date: '29 Oct 2024',
-                }],
+                notes: [],
                 currentNote: null,
 
                 addNote: (note) => {
+
+                    const newNote = {
+                        id: Date.now(),
+                        title: note.title,
+                        content: note.content,
+                        tags: note.tags,
+                        date: new Date().toLocaleDateString(),
+                    }
+
                     set((state) => {
-                        state.notes.push(note);
+                        state.notes.push(newNote);
                     });
                 },
             })
