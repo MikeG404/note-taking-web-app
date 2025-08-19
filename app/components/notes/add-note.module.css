@@ -1,0 +1,98 @@
+.addNoteHeader {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.addNoteHeader a {
+    gap: 16px;
+    border: none;
+    background-color: transparent;
+    color: var(--neutral-600);
+}
+
+.addNoteHeaderLinks {
+    display: flex;
+    gap: 16px;
+}
+
+.addNoteHeader a:nth-child(1) {
+    color: var(--neutral-600);
+}
+
+.addNoteHeader a:nth-child(2) {
+    color: var(--blue-500);
+}
+
+.addNoteContentHeader {
+    border-bottom: 1px solid var(--neutral-200);
+    padding-bottom: 12px;
+}
+
+.addNoteContentHeader input:nth-child(1) {
+    border: none;
+    outline: none;
+    color: var(--neutral-950);
+    padding: 12px 0;
+}
+
+.addNoteContentHeader input:nth-child(1)::placeholder {
+    color: var(--neutral-950);
+}
+
+.addNoteItem span {
+    flex: 1;
+    white-space: wrap;
+}
+
+.addNoteItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+}
+
+
+.addNoteItem input {
+    flex: 2.6;
+    min-width: 0;
+    border: none;
+    outline: none;
+    color: var(--neutral-950);
+}
+
+.addNoteItem textarea {
+    flex: 2.6;
+    min-width: 0;
+    border: none;
+    outline: none;
+    color: var(--neutral-950);
+    resize: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0;
+    background: transparent;
+}
+
+.addNoteItem p {
+    flex: 2.6;
+    min-width: 0;
+}
+
+
+.addNoteContentBody {
+    padding-top: 12px;
+    width: 100%;
+    height: 100vh;
+}
+
+.addNoteContentBody textarea {
+    border: none;
+    outline: none;
+    color: var(--neutral-950);
+    width: 100%;
+    resize: none;
+    height: 100vh;
+}
