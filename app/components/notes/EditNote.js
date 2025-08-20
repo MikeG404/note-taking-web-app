@@ -4,7 +4,8 @@ import styles from './add-note.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useNoteStore } from '@/store/useNoteStore';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
+import ValidationModal from '../ui/ValidationModal';
 
 export default function EditNote({ noteId }) {
     const router = useRouter();
@@ -15,6 +16,8 @@ export default function EditNote({ noteId }) {
         content: '',
         tags: '',
     });
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [showArchiveModal, setShowArchiveModal] = useState(false);
 
     useEffect(() => {
         if (noteId) {
@@ -39,43 +42,75 @@ export default function EditNote({ noteId }) {
         router.push('/all-notes');
     }
 
-    return (
-        <section className='grid-mobile'>
-            <div className={styles.addNoteHeader}>
-                <Link href="/all-notes" style={{ display: 'flex', alignItems: 'center', gap: 'px' }}>
-                    <ChevronLeft />
-                    Go Back
-                </Link>
-                <div className={styles.addNoteHeaderLinks}>
-                    <button>
-                        <Trash />
-                    </button>
-                    <button>
-                        <Archive />
-                    </button>
-                    <Link href="/all-notes">Cancel</Link>
-                    <button onClick={handleSave}>Save</button>
-                </div>
-            </div>
+    const handleDelete = () => {
+        // TODO: Implémenter la suppression dans le store
+        console.log('Note deleted:', noteId);
+        setShowDeleteModal(false);
+        router.push('/all-notes');
+    }
 
-            <div className={styles.addNoteContentHeader}>
-                <input value={note.title} onChange={(e) => setNote({ ...note, title: e.target.value })} className='text-preset-2' type="text" placeholder="Enter Title..." />
-                <div className={styles.addNoteTags}>
-                    <div className={styles.addNoteItem}>
-                        <TagSvg width={16} height={16} />
-                        <span className='text-preset-6'>Tags</span>
-                        <textarea value={note.tags} onChange={(e) => setNote({ ...note, tags: e.target.value })} className='text-preset-6' placeholder="Add tags separated by commas (e.g. Work, Planning)" />
-                    </div>
-                    <div className={styles.addNoteItem}>
-                        <Clock />
-                        <span className='text-preset-6'>Last edited</span>
-                        <p className='text-preset-6'>Not yet saved</p>
+    const handleArchive = () => {
+        // TODO: Implémenter l'archivage dans le store
+        console.log('Note archived:', noteId);
+        setShowArchiveModal(false);
+        router.push('/all-notes');
+    }
+
+    return (
+        <Fragment>
+            <section className='grid-mobile'>
+                <div className={styles.addNoteHeader}>
+                    <Link href="/all-notes" style={{ display: 'flex', alignItems: 'center', gap: 'px' }}>
+                        <ChevronLeft />
+                        Go Back
+                    </Link>
+                    <div className={styles.addNoteHeaderLinks}>
+                        <button onClick={() => setShowDeleteModal(true)}>
+                            <Trash />
+                        </button>
+                        <button onClick={() => setShowArchiveModal(true)}>
+                            <Archive />
+                        </button>
+                        <Link href="/all-notes">Cancel</Link>
+                        <button onClick={handleSave}>Save</button>
                     </div>
                 </div>
-            </div>
-            <div className={styles.addNoteContentBody}>
-                <textarea value={note.content} onChange={(e) => setNote({ ...note, content: e.target.value })} placeholder="Enter Content" />
-            </div>
-        </section>
+
+                <div className={styles.addNoteContentHeader}>
+                    <input value={note.title} onChange={(e) => setNote({ ...note, title: e.target.value })} className='text-preset-2' type="text" placeholder="Enter Title..." />
+                    <div className={styles.addNoteTags}>
+                        <div className={styles.addNoteItem}>
+                            <TagSvg width={16} height={16} />
+                            <span className='text-preset-6'>Tags</span>
+                            <textarea value={note.tags} onChange={(e) => setNote({ ...note, tags: e.target.value })} className='text-preset-6' placeholder="Add tags separated by commas (e.g. Work, Planning)" />
+                        </div>
+                        <div className={styles.addNoteItem}>
+                            <Clock />
+                            <span className='text-preset-6'>Last edited</span>
+                            <p className='text-preset-6'>Not yet saved</p>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.addNoteContentBody}>
+                    <textarea value={note.content} onChange={(e) => setNote({ ...note, content: e.target.value })} placeholder="Enter Content" />
+                </div>
+            </section>
+
+            {showDeleteModal && (
+                <ValidationModal
+                    type="delete"
+                    onCancel={() => setShowDeleteModal(false)}
+                    onConfirm={handleDelete}
+                />
+            )}
+
+            {showArchiveModal && (
+                <ValidationModal
+                    type="archive"
+                    onCancel={() => setShowArchiveModal(false)}
+                    onConfirm={handleArchive}
+                />
+            )}
+        </Fragment>
     )
 }
