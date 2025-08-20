@@ -5,7 +5,7 @@ import { immer } from 'zustand/middleware/immer';
 export const useNoteStore = create(
     persist(
         immer(
-            (set) => ({
+            (set, get) => ({
                 notes: [],
                 currentNote: null,
 
@@ -21,6 +21,21 @@ export const useNoteStore = create(
 
                     set((state) => {
                         state.notes.push(newNote);
+                    });
+                },
+
+                getNoteById: (id) => {
+                    const state = get();
+                    return state.notes.find(note => note.id === id);
+                },
+
+                updateNote: (id, updatedNote) => {
+                    set((state) => {
+                        const note = state.notes.find(note => note.id === id);
+                        if (note) {
+                            Object.assign(note, updatedNote);
+                            note.date = new Date().toLocaleDateString();
+                        }
                     });
                 },
             })

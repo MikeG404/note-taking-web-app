@@ -79,3 +79,24 @@ export const ChevronLeft = ({ width = 16, height = 16, color = '#2B303B' }) => {
         </svg>
     )
 }
+
+export const Trash = ({ width = 16, height = 16, color = '#2B303B' }) => {
+    return (
+        <svg width={width} height={height} viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.139 2.79285L11.7527 4.07789H13.7322C14.3409 4.07789 14.8343 4.55157 14.8343 5.13588V5.91938C14.8343 6.31888 14.4969 6.64274 14.0808 6.64274H3.75349C3.33735 6.64274 3 6.31888 3 5.91938V5.13588C3 4.55157 3.49341 4.07789 4.10207 4.07789H6.08164L6.69529 2.79285C6.87941 2.40721 7.28081 2.15997 7.72271 2.15997H10.1116C10.5535 2.15997 10.9548 2.40721 11.139 2.79285Z" stroke="#525866" strokeWidth="1.11818" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M13.6793 6.69653V12.9502C13.6793 14.1487 12.6798 15.1203 11.4469 15.1203H6.38672C5.15379 15.1203 4.1543 14.1487 4.1543 12.9502V6.69653" stroke="#525866" strokeWidth="1.11818" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M7.65039 9.22772V12.4738M10.1857 9.22772V12.4738" stroke="#525866" strokeWidth="1.11818" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    )
+}
+
+export const Archive = ({ width = 16, height = 16, color = '#2B303B' }) => {
+    return (
+        <svg width={width} height={height} viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.75 5.83656V12.1626C15.75 14.3737 14.1891 15.7499 11.9802 15.7499H6.01978C3.81089 15.7499 2.25 14.3737 2.25 12.1619V5.83656C2.25 3.62548 3.81089 2.24994 6.01978 2.24994H11.9802C14.1891 2.24994 15.75 3.63205 15.75 5.83656Z" stroke="#525866" strokeWidth="1.11818" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M11.25 10.4999L8.99865 12.7499L6.75 10.4999" stroke="#525866" strokeWidth="1.11818" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M8.99805 12.75V7.5" stroke="#525866" strokeWidth="1.11818" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M15.7012 5.25H2.29492" stroke="#525866" strokeWidth="1.11818" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    )
+}
