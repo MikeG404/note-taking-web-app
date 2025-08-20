@@ -11,6 +11,8 @@ export default function EditNote({ noteId }) {
     const router = useRouter();
     const getNoteById = useNoteStore((state) => state.getNoteById);
     const updateNote = useNoteStore((state) => state.updateNote);
+    const deleteNote = useNoteStore((state) => state.deleteNote);
+    const archiveNote = useNoteStore((state) => state.archiveNote);
     const [note, setNote] = useState({
         title: '',
         content: '',
@@ -43,15 +45,13 @@ export default function EditNote({ noteId }) {
     }
 
     const handleDelete = () => {
-        // TODO: Implémenter la suppression dans le store
-        console.log('Note deleted:', noteId);
+        deleteNote(parseInt(noteId));
         setShowDeleteModal(false);
         router.push('/all-notes');
     }
 
     const handleArchive = () => {
-        // TODO: Implémenter l'archivage dans le store
-        console.log('Note archived:', noteId);
+        archiveNote(parseInt(noteId));
         setShowArchiveModal(false);
         router.push('/all-notes');
     }

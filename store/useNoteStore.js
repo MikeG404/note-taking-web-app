@@ -7,6 +7,7 @@ export const useNoteStore = create(
         immer(
             (set, get) => ({
                 notes: [],
+                archivedNotes: [],
                 currentNote: null,
 
                 addNote: (note) => {
@@ -35,6 +36,39 @@ export const useNoteStore = create(
                         if (note) {
                             Object.assign(note, updatedNote);
                             note.date = new Date().toLocaleDateString();
+                        }
+                    });
+                },
+
+                deleteNote: (id) => {
+                    set((state) => {
+                        const noteIndex = state.notes.findIndex(note => note.id === id);
+                        if (noteIndex !== -1) {
+                            state.notes.splice(noteIndex, 1);
+                        }
+                    });
+                },
+
+                archiveNote: (id) => {
+                    set((state) => {
+                        const noteIndex = state.notes.findIndex(note => note.id === id);
+                        if (noteIndex !== -1) {
+                            const noteToArchive = state.notes[noteIndex];
+                            noteToArchive.archivedAt = new Date().toLocaleDateString();
+                            state.archivedNotes.push(noteToArchive);
+                            state.notes.splice(noteIndex, 1);
+                        }
+                    });
+                },
+
+                restoreNote: (id) => {
+                    set((state) => {
+                        const archivedIndex = state.archivedNotes.findIndex(note => note.id === id);
+                        if (archivedIndex !== -1) {
+                            const noteToRestore = state.archivedNotes[archivedIndex];
+                            delete noteToRestore.archivedAt;
+                            state.notes.push(noteToRestore);
+                            state.archivedNotes.splice(archivedIndex, 1);
                         }
                     });
                 },
