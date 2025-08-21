@@ -61,6 +61,15 @@ export const useNoteStore = create(
                     });
                 },
 
+                deleteArchivedNote: (id) => {
+                    set((state) => {
+                        const noteIndex = state.archivedNotes.findIndex(note => note.id === id);
+                        if (noteIndex !== -1) {
+                            state.archivedNotes.splice(noteIndex, 1);
+                        }
+                    });
+                },
+
                 restoreNote: (id) => {
                     set((state) => {
                         const archivedIndex = state.archivedNotes.findIndex(note => note.id === id);
