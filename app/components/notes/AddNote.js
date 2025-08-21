@@ -38,7 +38,7 @@ export default function CreateNote() {
             </div>
 
             <div className={styles.addNoteContentHeader}>
-                <input value={note.title} onChange={(e) => setNote({ ...note, title: e.target.value })} className='text-preset-2' type="text" placeholder="Enter Title..." />
+                <input autoFocus value={note.title} onChange={(e) => setNote({ ...note, title: e.target.value })} className='text-preset-2' type="text" placeholder="Enter Title..." />
                 <div className={styles.addNoteTags}>
                     <div className={styles.addNoteItem}>
                         <TagSvg width={16} height={16} />
