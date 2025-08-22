@@ -11,7 +11,7 @@ export default function EditNote({ noteId }) {
     const router = useRouter();
     const getNoteById = useNoteStore((state) => state.getNoteById);
     const updateNote = useNoteStore((state) => state.updateNote);
-    const deleteNote = useNoteStore((state) => state.deleteNote);
+    const deleteArchivedNote = useNoteStore((state) => state.deleteArchivedNote);
     const archiveNote = useNoteStore((state) => state.archiveNote);
     const [note, setNote] = useState({
         title: '',
@@ -41,26 +41,26 @@ export default function EditNote({ noteId }) {
             tags: note.tags ? note.tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0) : []
         };
         updateNote(parseInt(noteId), noteWithArrayTags);
-        router.push('/all-notes');
+        router.push('/archived-notes');
     }
 
     const handleDelete = () => {
-        deleteNote(parseInt(noteId));
+        deleteArchivedNote(parseInt(noteId));
         setShowDeleteModal(false);
-        router.push('/all-notes');
+        router.push('/archived-notes');
     }
 
     const handleArchive = () => {
         archiveNote(parseInt(noteId));
         setShowArchiveModal(false);
-        router.push('/all-notes');
+        router.push('/archived-notes');
     }
 
     return (
         <Fragment>
             <section className='grid-mobile'>
                 <div className={styles.addNoteHeader}>
-                    <Link href="/all-notes" style={{ display: 'flex', alignItems: 'center', gap: 'px' }}>
+                    <Link href="/archived-notes" style={{ display: 'flex', alignItems: 'center', gap: 'px' }}>
                         <ChevronLeft />
                         Go Back
                     </Link>

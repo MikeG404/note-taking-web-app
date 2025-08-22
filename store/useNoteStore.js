@@ -61,6 +61,15 @@ export const useNoteStore = create(
                     });
                 },
 
+                deleteArchivedNote: (id) => {
+                    set((state) => {
+                        const noteIndex = state.archivedNotes.findIndex(note => note.id === id);
+                        if (noteIndex !== -1) {
+                            state.archivedNotes.splice(noteIndex, 1);
+                        }
+                    });
+                },
+
                 restoreNote: (id) => {
                     set((state) => {
                         const archivedIndex = state.archivedNotes.findIndex(note => note.id === id);
@@ -72,6 +81,18 @@ export const useNoteStore = create(
                         }
                     });
                 },
+
+                searchNotes: (query, options = { byTitle: true, byTags: true }) => {
+                    const q = (query || '').trim().toLowerCase();
+                    if (!q) return get().notes;
+
+                    const { byTitle = true, byTags = true } = options || {};
+                    return get().notes.filter(note => {
+                        const titleMatch = byTitle && note.title.toLowerCase().includes(q);
+                        const tagsMatch = byTags && note.tags.some(tag => tag.toLowerCase().includes(q));
+                        return titleMatch || tagsMatch;
+                    });
+                }
             })
         ),
         {
