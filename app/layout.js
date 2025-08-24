@@ -2,6 +2,7 @@ import { Pacifico } from "next/font/google";
 import "./globals.css";
 import MobilePageHeader from "./components/layout/MobilePageHeader";
 import MobilePageFooter from "./components/layout/MobilePageFooter";
+import DesktopLayout from "./components/layout/DesktopLayout";
 
 const pacifico = Pacifico({
   variable: "--font-pacifico",
@@ -18,9 +19,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${pacifico.variable}`}>
-        <MobilePageHeader />
-        {children}
-        <MobilePageFooter />
+        {/* Mobile Layout */}
+        <div className="mobile-layout">
+          <MobilePageHeader />
+          <main className="mobile-content">{children}</main>
+          <MobilePageFooter />
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="desktop-layout">
+          <DesktopLayout></DesktopLayout>
+        </div>
       </body>
     </html>
   );

@@ -92,6 +92,11 @@ export const useNoteStore = create(
                         const tagsMatch = byTags && note.tags.some(tag => tag.toLowerCase().includes(q));
                         return titleMatch || tagsMatch;
                     });
+                },
+
+                getTags: () => {
+                    const state = get();
+                    return state.notes.flatMap(note => note.tags);
                 }
             })
         ),

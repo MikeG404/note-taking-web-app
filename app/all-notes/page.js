@@ -6,7 +6,7 @@ export default function AllNotes() {
     const notes = useNoteStore((state) => state.notes) || [];
     return (
         <main>
-            <NoteList notes={notes} title='All Notes'/>
+            <NoteList notes={notes} title='All Notes' />
         </main>
     )
 }
